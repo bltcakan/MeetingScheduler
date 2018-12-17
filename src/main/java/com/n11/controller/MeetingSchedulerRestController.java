@@ -23,12 +23,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.n11.configuration.MeetingSchedulerProperties;
 import com.n11.model.Container;
 import com.n11.model.Meeting;
 import com.n11.service.MeetingSchedulerService;
 
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping(value = "/scheduler")
 public class MeetingSchedulerRestController {

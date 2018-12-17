@@ -1,0 +1,82 @@
+{
+  "groups": [
+    {
+      "name": "",
+      "type": "com.n11.configuration.MeetingSchedulerProperties",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "afternoon-duration",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "afternoon-start-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "launch-duration",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "launch-start-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "lightning",
+      "type": "java.lang.String",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "lunch-name",
+      "type": "java.lang.String",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "max-event-duration",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "minute-postfix",
+      "type": "java.lang.String",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "morning-duration",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "morning-max-interval",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "morning-start-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "networkin-event-name",
+      "type": "java.lang.String",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "s-p-a-c-e",
+      "type": "java.lang.String",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    },
+    {
+      "name": "time-patern",
+      "type": "java.lang.String",
+      "sourceType": "com.n11.configuration.MeetingSchedulerProperties"
+    }
+  ],
+  "hints": []
+}

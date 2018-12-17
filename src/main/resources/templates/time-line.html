@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/timeline.css">
+<script>
+
+</script>
+</head>
+<body>
+
+<div id="content"></div>
+<script>
+var meetData = [
+   {
+       "trackName": "Salon1",
+       "eventList": [
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 60,
+               "getEndTimeStr": "10:00AM",
+               "startTimeStr": "09:00AM"
+           },
+           {
+               "topic": "Architecting Your Codebase",
+               "duration": 60,
+               "getEndTimeStr": "11:00AM",
+               "startTimeStr": "10:00AM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 45,
+               "getEndTimeStr": "11:45AM",
+               "startTimeStr": "11:00AM"
+           },
+           {
+               "topic": "Launch",
+               "duration": 60,
+               "getEndTimeStr": "01:00PM",
+               "startTimeStr": "12:00PM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 45,
+               "getEndTimeStr": "01:45PM",
+               "startTimeStr": "01:00PM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 45,
+               "getEndTimeStr": "02:30PM",
+               "startTimeStr": "01:45PM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 30,
+               "getEndTimeStr": "03:00PM",
+               "startTimeStr": "02:30PM"
+           },
+           {
+               "topic": "Networking Event",
+               "duration": 60,
+               "getEndTimeStr": "05:00PM",
+               "startTimeStr": "04:00PM"
+           }
+       ]
+   },
+   {
+       "trackName": "Salon2",
+       "eventList": [
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 60,
+               "getEndTimeStr": "10:00AM",
+               "startTimeStr": "09:00AM"
+           },
+           {
+               "topic": "Architecting Your Codebase",
+               "duration": 60,
+               "getEndTimeStr": "11:00AM",
+               "startTimeStr": "10:00AM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 45,
+               "getEndTimeStr": "11:45AM",
+               "startTimeStr": "11:00AM"
+           },
+           {
+               "topic": "Launch",
+               "duration": 60,
+               "getEndTimeStr": "01:00PM",
+               "startTimeStr": "12:00PM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 45,
+               "getEndTimeStr": "01:45PM",
+               "startTimeStr": "01:00PM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 45,
+               "getEndTimeStr": "02:30PM",
+               "startTimeStr": "01:45PM"
+           },
+           {
+               "topic": "Overdoing it in Python",
+               "duration": 30,
+               "getEndTimeStr": "03:00PM",
+               "startTimeStr": "02:30PM"
+           },
+           {
+               "topic": "Networking Event",
+               "duration": 60,
+               "getEndTimeStr": "05:00PM",
+               "startTimeStr": "04:00PM"
+           }
+       ]
+   }
+];
+
+</script>
+<script>
+
+
+xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://localhost:8080/scheduler/saved-scheduled-list',true);
+xhr.responseType = 'json';
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    console.log('response', this.response);
+	  console.log(this.respose);
+	  meetData=this.response;
+    prepareData();
+}}
+xhr.send();
+
+function prepareData(){
+  meetData.forEach(element => {
+      console.log(element.trackName)
+      var tabElem = '<button class="accordion">'+element.trackName+'</button>';
+      tabElem += '<div class="panel">'
+          +'<div class="timeline">';
+
+                  element.eventList.forEach((elem, index) => {
+                      var cls = index %2 == 0 ? 'left':'right';
+                  tabElem += '<div class="container '+cls+'">'
+                  +'<div class="content">'
+                      +'<h2>'+elem.topic+'</h2>'
+                      +'<p>Start Time: '+elem.startTimeStr+'-'+elem.getEndTimeStr+'</p>'
+                      +'<p>Duration: '+elem.duration+' min</p>'
+                      +'</div>'
+                      +'</div>';
+              });
+
+
+              tabElem += '</div></div>';
+  var tabs = document.getElementById('content');
+  tabs.insertAdjacentHTML('beforeend', tabElem);
+  });
+
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+
+
+}
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+}
+
+.container {
+	padding: 5% 10%;
+}
+
+.btn {
+	background-color: #4CAF50;
+	border: 1px solid green;
+	color: white;
+	padding: 10px 24px;
+	cursor: pointer;
+	float: left;
+}
+
+#data {
+	width: 75%;
+	height: 600px;
+}
+</style>
+<script>
+function getData(){
+    var meetings = [];
+    var data = document.getElementById('data').value.split('\n');
+    data.forEach(element => {
+        var row = element.split(' ');
+        var duration = row.pop();
+        var meeting={
+            "meetingName": row.join(),
+            "duration":duration
+        }
+        meetings.push(meeting);
+    });
+    console.log(meetings);
+     xmlhttp = new XMLHttpRequest;
+     xmlhttp.open( "POST", "http://localhost:8080/scheduler/save-eventdata" ,true);
+     xmlhttp.setRequestHeader('Content-Type', 'application/json');
+    xmlhttp.onreadystatechange = function() {
+  console.log(xmlhttp.responseText)
+};
+
+     xmlhttp.send(JSON.stringify(meetings));
+    var body = xmlhttp.response
+    console.log(body);
+    
+}
+    
+
+
+</script>
+</head>
+<body>
+
+	<div class="container">
+		<textarea id="data" name="message"></textarea>
+		<div>
+			<button type="button" class="btn" onclick="getData()">Upload
+				Data</button>
+		</div>
+		<div>
+		<p>Time Line: <a href="http://localhost:8080/time-line">Click for get time line</a></p>
+		</div>
+	</div>
+</body>
+</html>

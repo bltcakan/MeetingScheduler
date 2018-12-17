@@ -30,7 +30,7 @@ import com.n11.model.Container;
 import com.n11.model.Meeting;
 import com.n11.service.MeetingSchedulerService;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/scheduler")
 public class MeetingSchedulerRestController {
@@ -50,7 +50,7 @@ public class MeetingSchedulerRestController {
 
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/saved-scheduled-list")
+	@RequestMapping(method = RequestMethod.GET, value = "/saved-scheduled-list",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Container>> getSavedScheduledList() {
 		logger.debug("getSavedScheduledList data conroller has been activated");
 		return ResponseEntity.ok(meetingSchedulerService.createSchuledList());
